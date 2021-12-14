@@ -18,10 +18,11 @@ export class ShoppingListComponent implements OnInit {
   }
 
   updateShoppingList(ingredient) {
-    this.ingredients.push({
-      name: ingredient.ingredientName,
-      amount: ingredient.ingredientAmount
-    })
+    // this.ingredients.push({
+    //   name: ingredient.ingredientName,
+    //   amount: ingredient.ingredientAmount
+    // })
+    this.ingredients.push(ingredient)
   }
 
 }
