@@ -22,7 +22,7 @@ export class DropdownDirective {
   
 }
 
-// CLOSING VIA CLICK ANYWHERE
+// CLOSING THE DROPDOWN WITH A CLICK ANYWHERE
 // import {Directive, ElementRef, HostBinding, HostListener} from '@angular/core';
  
 // @Directive({
