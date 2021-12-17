@@ -1,14 +1,11 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
-
-
-// TODO:
-// 1) Move RecipeList data arrays into Recipe Service
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
+  recipeSelected = new EventEmitter<Recipe>();
 
   constructor() { }
 
@@ -21,5 +18,5 @@ export class RecipeService {
   getRecipes() {
     return this.recipes.slice(); // returns a new array which is a COPY of the service array
   }
-
 }
+
