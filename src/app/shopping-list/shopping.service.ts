@@ -29,4 +29,16 @@ export class ShoppingService {
     // emit the UPDATED copy 
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
+
+  addIngredients(n: Ingredient[]) {
+    // a viable but noisy option that emits many events 
+    // for (let ingredient of n) {
+    //   this.addIngredient(ingredient);
+    // }
+    
+    // push can handle multiple objects
+    // use the spread operator (...) to spread out Ingredient[] as a list
+    this.ingredients.push(...n);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }
