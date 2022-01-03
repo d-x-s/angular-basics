@@ -37,13 +37,8 @@ export class RecipeService {
     return this.recipes.slice(); // returns a new array which is a COPY of the service array
   }
 
-  getRecipe(id: number) {
-    const recipe = this.recipes.find(
-      (r) => {
-        // return r.id === id;
-      }
-    );
-    return recipe;
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
