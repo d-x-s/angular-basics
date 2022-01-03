@@ -22,6 +22,7 @@ export class RecipeDetailComponent implements OnInit {
 
     // use subscription to ensure we can react to changes
     // don't forget to cast string to number with +
+    // note: this observable is managed by Angular so we do need to clean it up
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];

@@ -6,14 +6,15 @@ import { RecipeService } from './recipe.service';
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
-  providers: [RecipeService] // we put the service in this provider array because it is a 
-                             // parent of the other recipe components                            
+  // we put the service in this provider array because it is a parent of the other recipe components
+  providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
 
   constructor(private recipeService: RecipeService) { }
 
+  // note: this observable is managed by Angular so we do need to clean it up
   ngOnInit(): void {
     this.recipeService.recipeSelected.subscribe(
       (recipe: Recipe) => {
