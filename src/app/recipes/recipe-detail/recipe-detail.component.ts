@@ -35,6 +35,10 @@ export class RecipeDetailComponent implements OnInit {
 
   navigateToEditRoute() {
     this.router.navigate(['edit'], {relativeTo: (this.route)});
+
+    // alternative method, not as straightforward
+    // go up 1 level (to recipes), then add our id, then edit
+    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
 
 }
