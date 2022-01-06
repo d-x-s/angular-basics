@@ -1,6 +1,6 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
-
+import { Subject } from 'rxjs';
 
 // TODO:
 // - manages our shopping list (list of ingredients)
@@ -11,7 +11,7 @@ import { Ingredient } from '../shared/ingredient.model';
   providedIn: 'root'
 })
 export class ShoppingService {
-  @Output() ingredientsChanged = new EventEmitter<Ingredient[]>();
+  @Output() ingredientsChanged = new Subject<Ingredient[]>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
@@ -27,7 +27,7 @@ export class ShoppingService {
   addIngredient(n: Ingredient) {
     this.ingredients.push(n);
     // emit the UPDATED copy 
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   addIngredients(n: Ingredient[]) {
@@ -39,6 +39,6 @@ export class ShoppingService {
     // push can handle multiple objects
     // use the spread operator (...) to spread out Ingredient[] as a list
     this.ingredients.push(...n);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
